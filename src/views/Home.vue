@@ -23,11 +23,14 @@
           <div>
             <span class="title-company">CTO @ 天天一百网络科技</span>
           </div>
-          <div>
-            <ul>
+          <div class="left-desc">
+            <ul class="left-ul">
               <li>点餐100餐饮系统的重构</li>
+              <li style="width: 100%; height: 0; list-style: none"></li>
               <li>服务器性能优化</li>
+              <li style="width: 100%; height: 0; list-style: none"></li>
               <li>技术培训</li>
+              <li style="width: 100%; height: 0; list-style: none"></li>
               <li>Golang 在公司各个业务模块的推广</li>
             </ul>
           </div>
@@ -50,8 +53,8 @@
           <div>
             <span class="title-company">Java高级工程师 @ 苏州用心创造信息有限公司</span>
           </div>
-          <div>
-            <ul>
+          <div class="left-desc">
+            <ul class="left-ul">
               <li>微信公众号开发</li>
             </ul>
           </div>
@@ -73,9 +76,10 @@
           <div>
             <span class="title-company">项目经理 @ 苏州梦图数码信息有限公司</span>
           </div>
-          <div>
-            <ul>
+          <div class="left-desc">
+            <ul class="left-ul">
               <li>GIS方向开发</li>
+              <li style="width: 100%; height: 0; list-style: none"></li>
               <li>项目管理</li>
             </ul>
           </div>
@@ -111,6 +115,20 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+  .left-desc {
+    display: flex;
+  }
+
+  .left-ul {
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    width: 100%;
+    li {
+      flex-wrap: wrap;
+    }
+  }
 
   .title {
     display: inline-flex;
