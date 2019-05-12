@@ -1,8 +1,38 @@
 <template>
   <div class="home">
-    <div class="title">
-      <h1 class="about-me">关于我</h1>
+    <div class="head">
+      <div>
+        <span class="about-me">About me</span>
+      </div>
+      <div class="contact-me">
+        <a href="mailto:me@qixin.io">contact</a>
+      </div>
     </div>
+    <div class="tech-main">
+      <span class="title">技术栈</span>
+      <ul class="ul-container">
+        <li class="li-title">Front end
+          <ul>
+            <li>Vue.js</li>
+            <li>React.js</li>
+            <li>SASS</li>
+          </ul>
+        </li>
+        <li class="li-title">Back end
+          <ul>
+            <li>Java</li>
+            <li>Go</li>
+            <li>Nodejs</li>
+          </ul>
+        </li>
+        <li class="li-title">Mobile
+          <ul>
+            <li>Android</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <span class="experience">职业经历</span>
     <div class="timeline">
       <a-timeline mode="alternate">
         <a-timeline-item>
@@ -26,11 +56,8 @@
           <div class="left-desc">
             <ul class="left-ul">
               <li>点餐100餐饮系统的重构</li>
-              <li style="width: 100%; height: 0; list-style: none"></li>
               <li>服务器性能优化</li>
-              <li style="width: 100%; height: 0; list-style: none"></li>
               <li>技术培训</li>
-              <li style="width: 100%; height: 0; list-style: none"></li>
               <li>Golang 在公司各个业务模块的推广</li>
             </ul>
           </div>
@@ -39,7 +66,7 @@
           <a-icon slot="dot" type="clock-circle-o" style="font-size: 16px;" />
           <span>2015/01 ~ 2015/11</span>
           <div>
-            <span class="title-company">系统架构师 @ 天下互联苏州分公司啰嗦科技</span>
+            <span class="title-company">系统架构师 @ 天下互联苏州分公司</span>
           </div>
           <div>
             <ul>
@@ -51,7 +78,7 @@
         <a-timeline-item color="green">
           <span>2014/09 ~ 2015/01</span>
           <div>
-            <span class="title-company">Java高级工程师 @ 苏州用心创造信息有限公司</span>
+            <span class="title-company">Java高级工程师 @ 苏州用心创造</span>
           </div>
           <div class="left-desc">
             <ul class="left-ul">
@@ -62,7 +89,7 @@
         <a-timeline-item>
           <span>2014/07 ~ 2014/09</span>
           <div>
-            <span class="title-company">Java高级工程师 @ 苏州瑞鹏信息科技有限公司</span>
+            <span class="title-company">Java高级工程师 @ 苏州瑞鹏</span>
           </div>
           <div>
             <ul>
@@ -74,12 +101,11 @@
           <a-icon slot="dot" type="clock-circle-o" style="font-size: 16px;" />
           <span>2013/11 ~ 2014/07</span>
           <div>
-            <span class="title-company">项目经理 @ 苏州梦图数码信息有限公司</span>
+            <span class="title-company">项目经理 @ 苏州梦图数码</span>
           </div>
           <div class="left-desc">
             <ul class="left-ul">
               <li>GIS方向开发</li>
-              <li style="width: 100%; height: 0; list-style: none"></li>
               <li>项目管理</li>
             </ul>
           </div>
@@ -121,23 +147,32 @@ export default {
   }
 
   .left-ul {
-    display: inline-flex;
+    display: flex;
     flex-wrap: wrap;
     justify-content: flex-end;
+    align-items: flex-end;
+    flex-direction: column;
     width: 100%;
     li {
       flex-wrap: wrap;
     }
   }
 
-  .title {
-    display: inline-flex;
-    justify-content: center;
+  .head {
+    display: flex;
+    justify-content: space-around;
     flex-grow: 1;
     width: 100%;
     margin-top: 12px;
     & .about-me {
       color: #1790FF;
+      font-weight: bold;
+      font-size: 2em;
+    }
+    & .contact-me {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
     }
   }
 
@@ -148,5 +183,36 @@ export default {
 
   .timeline {
     margin: 2% auto;
+  }
+
+  .experience {
+    font-size: 1em;
+    font-weight: bold;
+    color: #1790FF;
+    display: flex;
+    justify-content: center;
+  }
+
+  .tech-main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    & .title {
+      font-size: 1em;
+      font-weight: bold;
+      color: #1790FF;
+      margin: 0 24px;
+    }
+    & .ul-container {
+      margin: 12px 0;
+      padding-inline-start: 0;
+      & .li-title {
+        display: block;
+        float: left;
+        margin: 0 6px;
+        font-size: medium;
+      }
+    }
   }
 </style>
