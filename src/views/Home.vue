@@ -11,21 +11,24 @@
     <div class="tech-main">
       <span class="title">技术栈</span>
       <ul class="ul-container">
-        <li class="li-title">Front end
+        <li class="li-title">
+          Front end
           <ul>
             <li>Vue.js</li>
             <li>React.js</li>
             <li>SASS</li>
           </ul>
         </li>
-        <li class="li-title">Back end
+        <li class="li-title">
+          Back end
           <ul>
             <li>Java</li>
             <li>Go</li>
             <li>Nodejs</li>
           </ul>
         </li>
-        <li class="li-title">Mobile
+        <li class="li-title">
+          Mobile
           <ul>
             <li>Android</li>
           </ul>
@@ -63,12 +66,12 @@
           </div>
         </a-timeline-item>
         <a-timeline-item>
-          <a-icon slot="dot"
-                  type="clock-circle-o"
-                  style="font-size: 16px;" />
+          <a-icon slot="dot" type="clock-circle-o" style="font-size: 16px;" />
           <span>2015/01 ~ 2015/11</span>
           <div class="right_item">
-            <span class="title-company right_title">系统架构师 @ 天下互联苏州分公司</span>
+            <span class="title-company right_title"
+              >系统架构师 @ 天下互联苏州分公司</span
+            >
           </div>
           <div class="job_contents">
             <ul>
@@ -80,7 +83,9 @@
         <a-timeline-item color="green">
           <span>2014/09 ~ 2015/01</span>
           <div>
-            <span class="title-company left_title">Java高级工程师 @ 苏州用心创造</span>
+            <span class="title-company left_title"
+              >Java高级工程师 @ 苏州用心创造</span
+            >
           </div>
           <div class="left-desc">
             <ul class="left-ul">
@@ -91,7 +96,9 @@
         <a-timeline-item>
           <span>2014/07 ~ 2014/09</span>
           <div class="right_item">
-            <span class="title-company right_title">Java高级工程师 @ 苏州瑞鹏</span>
+            <span class="title-company right_title"
+              >Java高级工程师 @ 苏州瑞鹏</span
+            >
           </div>
           <div class="job_contents">
             <ul>
@@ -100,12 +107,12 @@
           </div>
         </a-timeline-item>
         <a-timeline-item>
-          <a-icon slot="dot"
-                  type="clock-circle-o"
-                  style="font-size: 16px;" />
+          <a-icon slot="dot" type="clock-circle-o" style="font-size: 16px;" />
           <span>2013/11 ~ 2014/07</span>
           <div>
-            <span class="title-company left_title">项目经理 @ 苏州梦图数码</span>
+            <span class="title-company left_title"
+              >项目经理 @ 苏州梦图数码</span
+            >
           </div>
           <div class="left-desc">
             <ul class="left-ul">
@@ -117,9 +124,11 @@
         <a-timeline-item color="green">
           <span>2011/08 ~ 2013/11</span>
           <div class="right_item">
-            <span class="title-company right_title">Java开发工程师 @ 南京斯帝普科技有限公司</span>
+            <span class="title-company right_title"
+              >Java开发工程师 @ 南京斯帝普科技有限公司</span
+            >
           </div>
-          <div>
+          <div class="job_contents">
             <ul>
               <li>苏源高科公司外包项目开发</li>
             </ul>
@@ -131,17 +140,17 @@
 </template>
 
 <script>
-import { Timeline, Icon } from 'ant-design-vue'
-import 'ant-design-vue/lib/timeline/style/css'
+import { Timeline, Icon } from "ant-design-vue";
+import "ant-design-vue/lib/timeline/style/css";
 
 export default {
-  name: 'home',
+  name: "home",
   components: {
     ATimeline: Timeline,
     ATimelineItem: Timeline.Item,
     AIcon: Icon
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
@@ -162,7 +171,7 @@ export default {
   justify-content: flex-end;
   align-items: flex-end;
   flex-direction: column;
-  padding-left: 1.2rem;
+  padding-left: 2.8rem;
   width: 100%;
   li {
     flex-wrap: wrap;
@@ -206,6 +215,7 @@ export default {
 
 .timeline {
   margin: 2% auto;
+  overflow: hidden;
 }
 
 .experience {
