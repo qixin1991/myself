@@ -140,17 +140,17 @@
 </template>
 
 <script>
-import { Timeline, Icon } from "ant-design-vue";
-import "ant-design-vue/lib/timeline/style/css";
+import { Timeline, Icon } from 'ant-design-vue'
+import 'ant-design-vue/lib/timeline/style/css'
 
 export default {
-  name: "home",
+  name: 'home',
   components: {
     ATimeline: Timeline,
     ATimelineItem: Timeline.Item,
     AIcon: Icon
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>
