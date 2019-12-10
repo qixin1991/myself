@@ -214,8 +214,9 @@ export default {
 }
 
 .timeline {
-  margin: 2% auto;
+  margin: 1% auto;
   overflow: hidden;
+  padding-top: 2px;
 }
 
 .experience {
