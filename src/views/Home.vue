@@ -35,103 +35,20 @@
         </li>
       </ul>
     </div>
-    <span class="experience">职业经历</span>
+    <div class="experience">职业经历</div>
     <div class="timeline">
-      <a-timeline mode="alternate">
-        <a-timeline-item>
-          <span>2016/03 ~ Now</span>
-          <div class="right_item">
-            <span class="title-company right_title">架构师 @ 家装E站</span>
-          </div>
-          <div class="job_contents">
-            <ul>
-              <li>负责面向全国近500家分站的分站管理系统开发</li>
-              <li>Nodejs 技术栈在内部的推广</li>
-              <li>百台 Linux 服务器的运维管理工作</li>
-            </ul>
-          </div>
-        </a-timeline-item>
-        <a-timeline-item color="green">
-          <span>2015/11 ~ 2016/03</span>
-          <div>
-            <span class="title-company left_title">CTO @ 天天一百网络科技</span>
-          </div>
-          <div class="left-desc">
-            <ul class="left-ul">
-              <li>点餐100餐饮系统的重构</li>
-              <li>服务器性能优化</li>
-              <li>技术培训</li>
-              <li>Golang 在公司各个业务模块的推广</li>
-            </ul>
-          </div>
-        </a-timeline-item>
-        <a-timeline-item>
-          <a-icon slot="dot" type="clock-circle-o" style="font-size: 16px;" />
-          <span>2015/01 ~ 2015/11</span>
-          <div class="right_item">
-            <span class="title-company right_title"
-              >系统架构师 @ 天下互联苏州分公司</span
-            >
-          </div>
-          <div class="job_contents">
-            <ul>
-              <li>社交App Backend开发</li>
-              <li>运维</li>
-            </ul>
-          </div>
-        </a-timeline-item>
-        <a-timeline-item color="green">
-          <span>2014/09 ~ 2015/01</span>
-          <div>
-            <span class="title-company left_title"
-              >Java高级工程师 @ 苏州用心创造</span
-            >
-          </div>
-          <div class="left-desc">
-            <ul class="left-ul">
-              <li>微信公众号开发</li>
-            </ul>
-          </div>
-        </a-timeline-item>
-        <a-timeline-item>
-          <span>2014/07 ~ 2014/09</span>
-          <div class="right_item">
-            <span class="title-company right_title"
-              >Java高级工程师 @ 苏州瑞鹏</span
-            >
-          </div>
-          <div class="job_contents">
-            <ul>
-              <li>外婆家 - 微信公众号</li>
-            </ul>
-          </div>
-        </a-timeline-item>
-        <a-timeline-item>
-          <a-icon slot="dot" type="clock-circle-o" style="font-size: 16px;" />
-          <span>2013/11 ~ 2014/07</span>
-          <div>
-            <span class="title-company left_title"
-              >项目经理 @ 苏州梦图数码</span
-            >
-          </div>
-          <div class="left-desc">
-            <ul class="left-ul">
-              <li>GIS方向开发</li>
-              <li>项目管理</li>
-            </ul>
-          </div>
-        </a-timeline-item>
-        <a-timeline-item color="green">
-          <span>2011/08 ~ 2013/11</span>
-          <div class="right_item">
-            <span class="title-company right_title"
-              >Java开发工程师 @ 南京斯帝普科技有限公司</span
-            >
-          </div>
-          <div class="job_contents">
-            <ul>
-              <li>苏源高科公司外包项目开发</li>
-            </ul>
+      <a-timeline>
+        <a-timeline-item :color="info.color" v-for="(info, idx) in infos" :key="idx">
+          <a-icon v-if="info.type" slot="dot" :type="info.type" style="font-size: 16px;" />
+          <div class="card">
+            <card :title="info.time">
+                <div class="title-company">{{ info.title }} @ {{ info.company }}</div>
+                <div class="job_contents">
+                  <ul>
+                    <li v-for="(job, i) in info.jobs" :key="i">{{ job }}</li>
+                  </ul>
+                </div>
+            </card>
           </div>
         </a-timeline-item>
       </a-timeline>
@@ -140,42 +57,111 @@
 </template>
 
 <script>
-import { Timeline, Icon } from 'ant-design-vue'
+import { Timeline, Icon, Card } from 'ant-design-vue'
 import 'ant-design-vue/lib/timeline/style/css'
+import 'ant-design-vue/lib/card/style/css'
 
 export default {
   name: 'home',
   components: {
     ATimeline: Timeline,
     ATimelineItem: Timeline.Item,
-    AIcon: Icon
+    AIcon: Icon,
+    Card
+  },
+  data () {
+    return {
+      infos: [{
+        time: '2016/03 ~ Now',
+        title: '架构师',
+        company: '家装E站',
+        jobs: [
+          '平安银行见证宝 POS APP & Backend 开发，日均交易额180W±',
+          '面向全国近500家分站订单系统开发，日均交易额200W±',
+          '系统架构设计与Spring Cloud微服务落地',
+          'Nodejs技术栈在内部的推广',
+          '前端和后端项目管理设计',
+          '百台Linux服务器运维'
+        ]
+      },
+      {
+        time: '2015/11 ~ 2016/03',
+        title: 'CTO',
+        company: '天天一百网络科技',
+        jobs: [
+          '点餐100餐饮系统的重构',
+          '服务器性能优化',
+          '技术培训'
+        ],
+        color: 'green'
+      },
+      {
+        time: '2015/01 ~ 2015/11',
+        title: '系统架构师',
+        company: '天下互联苏州分公司',
+        jobs: [
+          '啰嗦App Backend开发',
+          '运维'
+        ],
+        type: 'clock-circle-o'
+      },
+      {
+        time: '2014/09 ~ 2015/01',
+        title: 'Java高级工程师',
+        company: '苏州用心创造',
+        jobs: [
+          '微信公众号开发'
+        ],
+        color: 'green'
+      },
+      {
+        time: '2014/07 ~ 2014/09',
+        title: 'Java高级工程师',
+        company: '苏州瑞鹏',
+        jobs: [
+          '外婆家微信公众号开发'
+        ]
+      },
+      {
+        time: '2013/11 ~ 2014/07',
+        title: '项目经理',
+        company: '苏州梦图数码',
+        jobs: [
+          'GIS方向开发',
+          '项目管理'
+        ],
+        type: 'clock-circle-o'
+      },
+      {
+        time: '2011/08 ~ 2013/11',
+        title: 'Java开发工程师',
+        company: '南京斯帝普科技有限公司',
+        jobs: [
+          '国家电网外包项目开发'
+        ],
+        color: 'green'
+      }]
+    }
+  },
+  methods: {
+    title (info) {
+      return `${info.title} @ ${info.company}`
+    }
   }
 }
 </script>
 
 <style lang="scss" scoped>
 .job_contents {
-  width: 85%;
+  // width: 85%;
   & ul {
     padding-left: 1rem;
   }
 }
 
-.left-desc {
-  display: flex;
-}
-
-.left-ul {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-  align-items: flex-end;
-  flex-direction: column;
-  padding-left: 2.8rem;
-  width: 100%;
-  li {
-    flex-wrap: wrap;
-  }
+.card {
+  background:#ECECEC;
+  padding:8px;
 }
 
 .head {
@@ -184,39 +170,25 @@ export default {
   flex-grow: 1;
   width: 100%;
   margin-top: 12px;
+  align-items: baseline;
   & .about-me {
     color: #1790ff;
     font-weight: bold;
     font-size: 2em;
-  }
-  & .contact-me {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
   }
 }
 
 .title-company {
   font-size: 14px;
   font-weight: bold;
-}
-
-.left_title {
-  margin-left: 1.2rem;
-}
-
-.right_title {
-  margin-right: 1.2rem;
-}
-
-.right_item {
-  width: 85%;
+  margin-bottom: 0.5rem;
 }
 
 .timeline {
-  margin: 1% auto;
-  overflow: hidden;
-  padding-top: 2px;
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  padding: 0 1rem;
 }
 
 .experience {
